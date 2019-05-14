@@ -5,6 +5,7 @@
  */
 package bean;
 
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
@@ -40,6 +41,10 @@ public class Patient extends Utilisateur {
 
     public Patient(Long id) {
         super(id);
+    }
+
+    public Patient(Float aFloat, Float aFloat0, long MIN_VALUE, String text, String text0, String text1, String text2, String text3, Date date1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public List<Meal> getMeals() {
