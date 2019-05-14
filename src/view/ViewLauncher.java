@@ -19,7 +19,7 @@ public class ViewLauncher extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Accueil.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Carnet.fxml"));
         
         Scene scene = new Scene(root);
         
