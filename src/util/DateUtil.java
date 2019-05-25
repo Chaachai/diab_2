@@ -56,4 +56,38 @@ public class DateUtil {
     public static String addConstraintMinMaxDate(String beanAbrev, String atributeName, Date valueMin, Date valueMax) {
         return addConstraintMinMax(beanAbrev, atributeName, convert1(valueMin), convert1(valueMax));
     }
+    
+    public static String formateDate(String pattern, Date date) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        if (date != null) {
+            return simpleDateFormat.format(date);
+        } else {
+            return "";
+        }
+    }
+
+    public static Date parse(String date) {
+        try {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            return simpleDateFormat.parse(date);
+        } catch (ParseException ex) {
+            return null;
+        }
+    }
+
+    public static java.sql.Date convertFormUtilToSql(java.util.Date date) {
+        if (date != null) {
+            return new java.sql.Date(date.getTime());
+        } else {
+            return null;
+        }
+    }
+
+    public static java.sql.Timestamp convertFormUtilToTimestamp(java.util.Date date) {
+        if (date != null) {
+            return new java.sql.Timestamp(date.getTime());
+        } else {
+            return null;
+        }
+    }
 }
