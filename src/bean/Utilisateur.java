@@ -5,6 +5,7 @@
  */
 package bean;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,7 +23,7 @@ import javax.persistence.Temporal;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Utilisateur {
+public class Utilisateur implements Serializable {
 
     @TableGenerator(name = "USER_GEN", table = "ID_GEN", pkColumnName = "GEN_NAME", valueColumnName = "GEN_VAL", allocationSize = 1)
     @Id

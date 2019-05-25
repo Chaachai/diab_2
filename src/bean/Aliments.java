@@ -28,7 +28,6 @@ public class Aliments implements Serializable {
     private Long id;
     private String libelle;
     private float calories;
-    private List<Patient> patients;
     @OneToMany(mappedBy = "aliments")
     private List<Meal> meals;
     @ManyToOne
@@ -61,14 +60,6 @@ public class Aliments implements Serializable {
 
     public void setCalories(float calories) {
         this.calories = calories;
-    }
-
-    public List<Patient> getPatients() {
-        return patients;
-    }
-
-    public void setPatients(List<Patient> patients) {
-        this.patients = patients;
     }
 
     public List<Meal> getMeals() {

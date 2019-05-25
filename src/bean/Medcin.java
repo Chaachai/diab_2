@@ -5,6 +5,7 @@
  */
 package bean;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -16,7 +17,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "MEDCIN")
-public class Medcin extends Utilisateur {
+public class Medcin extends Utilisateur implements Serializable {
 
     @OneToMany(mappedBy = "medcin")
     private List<Conseils> conseilss;
@@ -26,9 +27,6 @@ public class Medcin extends Utilisateur {
     @OneToMany(mappedBy = "medcin")
     private List<Cabinet> cabinets;
 
-  
-
-  
     public List<Conseils> getConseilss() {
         return conseilss;
     }
@@ -67,7 +65,5 @@ public class Medcin extends Utilisateur {
     public Medcin(Long id) {
         super(id);
     }
-    
-    
 
 }

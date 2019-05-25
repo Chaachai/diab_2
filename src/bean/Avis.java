@@ -27,6 +27,8 @@ public class Avis implements Serializable {
     private int rating;
     @ManyToOne
     private Medcin medcin;
+    @ManyToOne
+    private Patient patient;
 
     public Avis() {
     }
@@ -39,6 +41,14 @@ public class Avis implements Serializable {
         this.id = id;
         this.commentaire = commentaire;
         this.rating = rating;
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
 
     public Long getId() {

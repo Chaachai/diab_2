@@ -5,10 +5,11 @@
  */
 package bean;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -19,20 +20,20 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "PATIENT")
-public class Patient extends Utilisateur {
-
-    @OneToMany(mappedBy = "patient")
-    private List<Meal> meals;
+public class Patient extends Utilisateur implements Serializable {
 
     private float taille;
     private float poids;
+    @ManyToOne
     private CategorieDiabete categorieDiabete;
     @OneToOne
     private Carnet carnet;
     @OneToOne
     private EtatPatient etat;
-    @ManyToMany(mappedBy = "patients")
-    private List<Aliments> alimentss;
+    @OneToMany(mappedBy = "patient")
+    private List<Meal> meals;
+    @OneToMany(mappedBy = "patient")
+    private List<Avis> avisList;
 
     public Patient() {
     }
@@ -43,6 +44,14 @@ public class Patient extends Utilisateur {
 
     public Patient(Float aFloat, Float aFloat0, long MIN_VALUE, String text, String text0, String text1, String text2, String text3, Date date1) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public List<Avis> getAvisList() {
+        return avisList;
+    }
+
+    public void setAvisList(List<Avis> avisList) {
+        this.avisList = avisList;
     }
 
     public List<Meal> getMeals() {
@@ -91,14 +100,6 @@ public class Patient extends Utilisateur {
 
     public void setEtat(EtatPatient etat) {
         this.etat = etat;
-    }
-
-    public List<Aliments> getAlimentss() {
-        return alimentss;
-    }
-
-    public void setAlimentss(List<Aliments> alimentss) {
-        this.alimentss = alimentss;
     }
 
 }

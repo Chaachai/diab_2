@@ -26,6 +26,7 @@ public class Meal implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private float quantite;
+    private float glucide;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date date;
     @ManyToOne
@@ -40,11 +41,14 @@ public class Meal implements Serializable {
         this.id = id;
     }
 
-    public Meal(Long id, float quantite, Date date) {
+    public Meal(Long id, float quantite, float glucide, Date date) {
         this.id = id;
         this.quantite = quantite;
+        this.glucide = glucide;
         this.date = date;
     }
+
+   
 
     public float getQuantite() {
         return quantite;
@@ -84,6 +88,14 @@ public class Meal implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public float getGlucide() {
+        return glucide;
+    }
+
+    public void setGlucide(float glucide) {
+        this.glucide = glucide;
     }
 
     @Override
