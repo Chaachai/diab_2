@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -27,10 +28,11 @@ public class Aliments implements Serializable {
     private Long id;
     private String libelle;
     private float calories;
-    @ManyToMany
     private List<Patient> patients;
     @OneToMany(mappedBy = "aliments")
     private List<Meal> meals;
+    @ManyToOne
+    private CategorieAliment categorieAliment;
 
     public Aliments() {
     }
@@ -83,6 +85,14 @@ public class Aliments implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public CategorieAliment getCategorieAliment() {
+        return categorieAliment;
+    }
+
+    public void setCategorieAliment(CategorieAliment categorieAliment) {
+        this.categorieAliment = categorieAliment;
     }
 
     @Override

@@ -9,7 +9,6 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -27,7 +26,6 @@ public class Patient extends Utilisateur {
 
     private float taille;
     private float poids;
-    @ManyToOne
     private CategorieDiabete categorieDiabete;
     @OneToOne
     private Carnet carnet;
