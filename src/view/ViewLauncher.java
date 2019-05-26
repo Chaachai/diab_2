@@ -5,8 +5,11 @@
  */
 package view;
 
+import java.io.IOException;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -19,13 +22,22 @@ public class ViewLauncher extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Carnet.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("MedcinConseilsFXML.fxml"));
         
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+    }
+    
+      public static void forward(ActionEvent actionEvent, String pageName, Class myClass) throws IOException {
+        Parent parent = FXMLLoader.load(myClass.getResource(pageName));
+        Scene scene = new Scene(parent);
+        Stage app_stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        app_stage.hide();
+        app_stage.setScene(scene);
+        app_stage.show();
     }
 
     /**

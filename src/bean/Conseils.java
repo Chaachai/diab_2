@@ -19,11 +19,12 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Conseils implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 2L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String conseils;
+    private String titre;
     @ManyToOne
     private Medcin medcin;
     @ManyToOne
@@ -34,6 +35,14 @@ public class Conseils implements Serializable {
 
     public Conseils(Long id) {
         this.id = id;
+    }
+
+    public String getTitre() {
+        return titre;
+    }
+
+    public void setTitre(String titre) {
+        this.titre = titre;
     }
 
     public Conseils(Long id, String conseils) {

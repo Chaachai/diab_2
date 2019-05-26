@@ -96,7 +96,7 @@ public class CategorieDiabete implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.CategorieDiabete[ id=" + id + " ]";
+        return libelle;
     }
 
 }
