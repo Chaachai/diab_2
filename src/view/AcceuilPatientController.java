@@ -10,7 +10,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import service.UtilisateutFacade;
+import service.UtilisateurFacade;
 
 /**
  * FXML Controller class
@@ -21,7 +21,7 @@ public class AcceuilPatientController implements Initializable {
 @FXML
 private Button b1;
 
-private  UtilisateutFacade uf=new UtilisateutFacade();
+private  UtilisateurFacade uf=new UtilisateurFacade();
 
 public void testController(){
 

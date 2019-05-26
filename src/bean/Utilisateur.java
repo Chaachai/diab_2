@@ -34,6 +34,7 @@ public class Utilisateur implements Serializable {
     private String email;
     private String password;
     private String telephone;
+    private int role;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dateNaissance;
 
@@ -44,14 +45,23 @@ public class Utilisateur implements Serializable {
         this.id = id;
     }
 
-    public Utilisateur(Long id, String nom, String prenom, String email, String password, String telephone, Date dateNaissance) {
+    public Utilisateur(Long id, String nom, String prenom, String email, String password, String telephone, int role, Date dateNaissance) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.password = password;
         this.telephone = telephone;
+        this.role = role;
         this.dateNaissance = dateNaissance;
+    }
+
+    public int getRole() {
+        return role;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
     }
 
     public Long getId() {

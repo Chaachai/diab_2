@@ -5,6 +5,7 @@
  */
 package service;
 
+import bean.Utilisateur;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -14,7 +15,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author CHAACHAI Youssef
+ * @author hamza
  */
 public class UtilisateutFacadeTest {
     
@@ -40,15 +41,46 @@ public class UtilisateutFacadeTest {
     /**
      * Test of createUser method, of class UtilisateutFacade.
      */
-    @Test
-    public void testCreateUser() {
-        System.out.println("createUser");
-        UtilisateutFacade instance = new UtilisateutFacade();
+//    @Test
+//    public void testCreateUser() {
+//        System.out.println("createUser");
+//        UtilisateutFacade instance = new UtilisateutFacade();
 //        int expResult = 0;
-        int result = instance.createUser();
+//        int result = instance.createUser();
 //        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
+//        // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
+//    }
+
+    /**
+     * Test of getUtilisateurByTelOrEmail method, of class UtilisateutFacade.
+     */
+//    @Test
+//    public void testGetUtilisateurByTelOrEmail() {
+//        System.out.println("getUtilisateurByTelOrEmail");
+//        String telephone = "0606060606";
+//        String email = "yass@yassine.co";
+//        UtilisateutFacade instance = new UtilisateutFacade();
+////        Utilisateur expResult = null;
+//        Utilisateur result = instance.getUtilisateurByTelOrEmail(telephone, email);
+//        System.out.println(result.getNom());
+////        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+////        fail("The test case is a prototype.");
+//    }
+
+    /**
+     * Test of seConnecter method, of class UtilisateutFacade.
+     */
+    @Test
+    public void testSeConnecter() {
+        System.out.println("seConnecter");
+        UtilisateurFacade instance = new UtilisateurFacade();
+        //int expResult = 0;
+        int result = instance.seConnecter("ana@ana" ,"aaa" );
+        //assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
     }
     
 }

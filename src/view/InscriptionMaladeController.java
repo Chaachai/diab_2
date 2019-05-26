@@ -35,13 +35,13 @@ import service.PatientFacade;
  * @author fatima
  */
 public class InscriptionMaladeController implements Initializable {
-     @FXML
-    private Hyperlink visiteurLink;
       @FXML
-     private JFXButton inscriptionBtn;
+      private Hyperlink visiteurLink;
       @FXML
-     private JFXButton seConnBtn;
-         @FXML 
+      private JFXButton inscriptionBtn;
+      @FXML
+      private JFXButton seConnBtn;
+      @FXML 
       private JFXTextField nomTF;
       @FXML 
       private JFXTextField prenomTF;
@@ -67,21 +67,37 @@ public class InscriptionMaladeController implements Initializable {
       private JFXComboBox typeCB;
       @FXML
       PatientFacade patientFacade = new PatientFacade();
-       
       
       
-      public void create(ActionEvent actionEvent){
-          Date date1 = java.sql.Date.valueOf(dnDP.getValue());
-
-        Patient patient = new Patient(new Float(tailleTF.getText()),new Float(poidsTF.getText()), Long.MIN_VALUE, nomTF.getText(), prenomTF.getText(), emailTF.getText(), mdpTF.getText(), gsmTF.getText(), date1);
-         if(!mdpTF.getText().equals(cmdpTF.getText())){
-                JOptionPane.showMessageDialog(null, "Erreur de confirmation Mot De Passe","Error",JOptionPane.ERROR_MESSAGE);
-        }else { JOptionPane.showMessageDialog(null, "Inscription avec succée","Bienvenue",JOptionPane.INFORMATION_MESSAGE);
-        patientFacade.create(patient);
-        
+      
+      
        
-    }
-    }
+      
+      public void PatientInscrire(){
+          String nom = nomTF.getText();
+          String prenom = prenomTF.getText();
+          String email = emailTF.getText();
+          String password = mdpTF.getText();
+          String confirmeMdp = cmdpTF.getText();
+          
+          if(mdp.equals(confirmeMdp)){
+              int result = createPatient(nom, prenom,1, email, password, telephone, dateNaissance);
+          }
+          
+          
+      }
+//      public void create(ActionEvent actionEvent){
+//          Date date1 = java.sql.Date.valueOf(dnDP.getValue());
+//
+//        Patient patient = new Patient(new Float(tailleTF.getText()),new Float(poidsTF.getText()), Long.MIN_VALUE, nomTF.getText(), prenomTF.getText(), emailTF.getText(), mdpTF.getText(), gsmTF.getText(), date1);
+//         if(!mdpTF.getText().equals(cmdpTF.getText())){
+//                JOptionPane.showMessageDialog(null, "Erreur de confirmation Mot De Passe","Error",JOptionPane.ERROR_MESSAGE);
+//        }else { JOptionPane.showMessageDialog(null, "Inscription avec succée","Bienvenue",JOptionPane.INFORMATION_MESSAGE);
+//        patientFacade.create(patient);
+//        
+//       
+//    }
+//    }
      
    
     @Override

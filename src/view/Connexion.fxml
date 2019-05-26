@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="672.0" prefWidth="1272.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ConnexionController">
+<AnchorPane id="AnchorPane" prefHeight="672.0" prefWidth="1272.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ConnexionController">
    <children>
       <AnchorPane layoutX="-12.0" prefHeight="682.0" prefWidth="312.0" style="-fx-background-color: #2A3F54;">
          <children>
@@ -87,21 +87,21 @@
                   <Font size="14.0" />
                </font>
             </Hyperlink>
-            <JFXTextField layoutX="347.0" layoutY="287.0" prefHeight="25.0" prefWidth="276.0" promptText="Login" text="GSM" />
-            <JFXPasswordField layoutX="350.0" layoutY="393.0" prefHeight="25.0" prefWidth="279.0" promptText="Mot de passe" />
-            <JFXButton layoutX="415.0" layoutY="511.0" prefHeight="37.0" prefWidth="130.0" style="-fx-background-color: #11BA9D;" text="Se connecter" textFill="WHITE">
+            <JFXTextField fx:id="login" labelFloat="true" layoutX="347.0" layoutY="287.0" prefHeight="25.0" prefWidth="276.0" promptText="GSM ou E-mail" />
+            <JFXPasswordField fx:id="password" labelFloat="true" layoutX="350.0" layoutY="393.0" prefHeight="25.0" prefWidth="279.0" promptText="Mot de passe" />
+            <JFXButton fx:id="seConnectBtn" layoutX="415.0" layoutY="511.0" onAction="#connect" prefHeight="37.0" prefWidth="130.0" style="-fx-background-color: #11BA9D;" text="Se connecter" textFill="WHITE">
                <font>
                   <Font size="13.0" />
                </font>
             </JFXButton>
             <ImageView fitHeight="65.0" fitWidth="73.0" layoutX="388.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/diabetique.png" />
+                  <Image url="@../images/diabetique.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="66.0" fitWidth="60.0" layoutX="325.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/medecin.jpg" />
+                  <Image url="@../images/medecin.jpg" />
                </image>
             </ImageView>
          </children>
