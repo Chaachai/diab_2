@@ -10,14 +10,14 @@ import java.util.List;
 
 /**
  *
- * @author Ayoub
+ * @author moulaYounes
  */
 public class Session {
 
-    public static List<SessionItem> myMap = new ArrayList<>();
+    private static List<SessionItem> myMap = new ArrayList<>();
+
 
     public static Object getAttribut(String name) {
-
         for (int i = 0; i < myMap.size(); i++) {
             SessionItem sessionItem = myMap.get(i);
             if (sessionItem.getKey().equals(name)) {
@@ -27,35 +27,46 @@ public class Session {
         return null;
     }
 
-    public static Object setAttribut(Object obj, String name) {
-        SessionItem sessionItem = new SessionItem();
-        sessionItem.setKey(name);
-        sessionItem.setObject(obj);
-        myMap.add(sessionItem);
-        return myMap;
-    }
-
-
-    public static void delete(String name) {
-
-        Object object = new Object();
-        for (int i = 0; i < myMap.size(); i++) {
-            SessionItem sessionItem = myMap.get(i);
-            if (sessionItem.getKey().equals(name)) {
-                System.out.println("QQQQQQQQQQQQQQQ" + name);
-                sessionItem.setKey("");
-                sessionItem.setObject(object);
-
-            }
+    public static int updateAttribute(Object obj, String name) {
+        int index = indexOfAttribut(name);
+        if (index == -1) {
+            createAtrribute(obj,name );
+            return 1;
+        } else {
+            myMap.get(index).setObject(obj);
+            return 2;
         }
+    }
+
+    public static int delete(String name) {
+        int index = indexOfAttribut(name);
+        if (index != -1) {
+            myMap.remove(index);
+            return 1;
+        }
+        return -1;
 
     }
 
-//    public static void d(String name) {
-//        
-//    }
     public static void clear() {
         myMap.clear();
     }
 
+    public static void createAtrribute(Object obj,String name ) {
+        SessionItem sessionItem = new SessionItem();
+        sessionItem.setKey(name);
+        sessionItem.setObject(obj);
+        myMap.add(sessionItem);
+    }
+
+    private static int indexOfAttribut(String name) {
+        for (int i = 0; i < myMap.size(); i++) {
+            SessionItem sessionItem = myMap.get(i);
+            if (sessionItem.getKey().equals(name)) {
+                return i;
+            }
+        }
+        return -1;
+
+    }
 }

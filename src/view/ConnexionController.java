@@ -57,7 +57,7 @@ public class ConnexionController implements Initializable {
             case 1:
                 System.out.println("welcome");
                 Utilisateur utilisateur = uf.getUtilisateurByTelOrEmail(login.getText());
-                Session.setAttribut(utilisateur, "connectedUser");
+                Session.createAtrribute(utilisateur, "connectedUser");
                 switch (utilisateur.getRole()) {
                     case 1:
                         System.out.println("vous etes un patient");

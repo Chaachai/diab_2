@@ -80,8 +80,8 @@ public class InscriptionMaladeController implements Initializable {
           String password = mdpTF.getText();
           String confirmeMdp = cmdpTF.getText();
           
-          if(mdp.equals(confirmeMdp)){
-              int result = createPatient(nom, prenom,1, email, password, telephone, dateNaissance);
+          if(password.equals(confirmeMdp)){
+//              int result = createPatient(nom, prenom,1, email, password, telephone, dateNaissance);
           }
           
           

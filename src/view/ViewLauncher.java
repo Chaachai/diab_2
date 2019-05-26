@@ -22,7 +22,7 @@ public class ViewLauncher extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Connexion.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("MedcinConseilsFXML.fxml"));
         
         Scene scene = new Scene(root);
         
@@ -30,7 +30,8 @@ public class ViewLauncher extends Application {
         stage.setResizable(false);
         stage.show();
     }
-    public static void forward(ActionEvent actionEvent, String pageName, Class myClass) throws IOException {
+    
+      public static void forward(ActionEvent actionEvent, String pageName, Class myClass) throws IOException {
         Parent parent = FXMLLoader.load(myClass.getResource(pageName));
         Scene scene = new Scene(parent);
         Stage app_stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();

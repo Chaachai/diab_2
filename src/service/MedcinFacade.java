@@ -6,16 +6,15 @@
 package service;
 
 import bean.Medcin;
-import bean.Utilisateur;
 
 /**
  *
  * @author CHAACHAI Youssef
  */
-public class MedcinFacade extends AbstractFacade<Utilisateur> {
+public class MedcinFacade extends AbstractFacade<Medcin> {
 
     public MedcinFacade() {
-        super(Utilisateur.class);
+        super(Medcin.class);
     }
 
     public int createMedcin() {
