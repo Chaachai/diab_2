@@ -6,6 +6,8 @@
 package service;
 
 import bean.Medcin;
+import java.util.Date;
+
 
 /**
  *
@@ -17,14 +19,23 @@ public class MedcinFacade extends AbstractFacade<Medcin> {
         super(Medcin.class);
     }
 
-    public int createMedcin() {
-
-        Medcin med = new Medcin();
-        med.setNom("AAAAAAAA");
-        med.setPrenom("BBBBBB");
-        create(med);
+    public int createPatient(String nom, String prenom,int role, String email, String password, String telephone,Date dateNaissance ,String speciaite ) {
+            Medcin med = new Medcin();
+            //CategorieDiabete type = categorieDiabeteFacade.find(idType);
+            med.setNom(nom);
+            med.setPrenom(prenom);
+            med.setRole(role);
+            med.setEmail(email);
+            med.setPassword(password);
+            med.setTelephone(telephone);
+            med.setDateNaissance(dateNaissance);
+            med.setSpeciaite(speciaite);
+            create(med);
+            
+            return 1;
         
-        return 1;
+
     }
+
 
 }

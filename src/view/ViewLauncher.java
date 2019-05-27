@@ -22,7 +22,7 @@ public class ViewLauncher extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("MedcinConseilsFXML.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("InscriptionMedecin.fxml"));
         
         Scene scene = new Scene(root);
         

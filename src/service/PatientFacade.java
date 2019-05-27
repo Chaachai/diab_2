@@ -23,11 +23,11 @@ public class PatientFacade extends AbstractFacade<Patient>{
          patient.setPassword(HashageUtil.sha256(patient.getPassword()));
          super.create(patient);
      }
-//     CategorieDiabeteFacade categorieDiabeteFacade = new CategorieDiabeteFacade();
+     CategorieDiabeteFacade categorieDiabeteFacade = new CategorieDiabeteFacade();
      
-     public int createPatient(String nom, String prenom,int role, String email, String password, String telephone ,Date dateNaissance,float taille , float poid ,Long idType ) {
-        Patient patient = new Patient();
-        
+     public int createPatient(String nom, String prenom,int role, String email, String password, String telephone ,Date dateNaissance,float taille , float poids ,CategorieDiabete typeDiab ) {
+            Patient patient = new Patient();
+            //CategorieDiabete type = categorieDiabeteFacade.find(idType);
             patient.setNom(nom);
             patient.setPrenom(prenom);
             patient.setRole(role);
@@ -35,8 +35,10 @@ public class PatientFacade extends AbstractFacade<Patient>{
             patient.setPassword(password);
             patient.setTelephone(telephone);
             patient.setDateNaissance(dateNaissance);
+            patient.setTaille(taille);
+            patient.setPoids(poids);
+            patient.setCategorieDiabete(typeDiab);
             create(patient);
-            
             return 1;
         
 

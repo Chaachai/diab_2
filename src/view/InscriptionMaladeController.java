@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package view;
-
-import bean.Patient;
+import java.sql.Date;
+import bean.CategorieDiabete;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
@@ -13,8 +13,8 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Date;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -26,6 +26,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
+import service.CategorieDiabeteFacade;
 import service.PatientFacade;
 
 
@@ -35,6 +36,7 @@ import service.PatientFacade;
  * @author fatima
  */
 public class InscriptionMaladeController implements Initializable {
+      CategorieDiabeteFacade categorieDiabeteFacade = new CategorieDiabeteFacade();
       @FXML
       private Hyperlink visiteurLink;
       @FXML
@@ -64,7 +66,7 @@ public class InscriptionMaladeController implements Initializable {
       private JFXDatePicker dnDP;
      
       @FXML 
-      private JFXComboBox typeCB;
+      private JFXComboBox<CategorieDiabete> typeCB;
       @FXML
       PatientFacade patientFacade = new PatientFacade();
       
@@ -79,13 +81,30 @@ public class InscriptionMaladeController implements Initializable {
           String email = emailTF.getText();
           String password = mdpTF.getText();
           String confirmeMdp = cmdpTF.getText();
+          String gsm = gsmTF.getText();
+          Date dateNaissance = Date.valueOf(dnDP.getValue()) ;
+          float poids =Float.valueOf(poidsTF.getText()) ;
+          float taille = Float.valueOf(tailleTF.getText());
+          CategorieDiabete typeDiabete = typeCB.getValue();
           
           if(password.equals(confirmeMdp)){
-//              int result = createPatient(nom, prenom,1, email, password, telephone, dateNaissance);
+              System.out.println("passwords kif kif");
+              JOptionPane.showMessageDialog(null, "Inscription avec succée","Bienvenue",JOptionPane.INFORMATION_MESSAGE);
+              int resultat = patientFacade.createPatient(nom,prenom,1,email,password,gsm,dateNaissance,taille,poids,typeDiabete);
+              if(resultat == 1){
+                  System.out.println("insertion succces");
+              }
+             
+          }
+          else{
+              JOptionPane.showMessageDialog(null, "Erreur de confirmation Mot De Passe","Error",JOptionPane.ERROR_MESSAGE);
           }
           
           
       }
+      private void initComboboxTypes() {
+        typeCB.setItems(FXCollections.observableArrayList(categorieDiabeteFacade.findAll()));
+    }
 //      public void create(ActionEvent actionEvent){
 //          Date date1 = java.sql.Date.valueOf(dnDP.getValue());
 //
@@ -102,6 +121,8 @@ public class InscriptionMaladeController implements Initializable {
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        initComboboxTypes();
         // TODO
          visiteurLink.setOnAction(new EventHandler<ActionEvent>() {
     public void handle(ActionEvent event) {

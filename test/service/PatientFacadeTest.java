@@ -5,6 +5,7 @@
  */
 package service;
 
+import bean.CategorieDiabete;
 import bean.Patient;
 import java.util.Date;
 import org.junit.After;
@@ -58,18 +59,23 @@ public class PatientFacadeTest {
     @Test
     public void testCreatePatient() {
         System.out.println("createPatient");
-        String nom = "yassine";
-        String prenom = "zomorod";
-        String email = "yass@yassine.co";
-        String password = "yassine";
-        String telephone = "0606060606";
-        Date dateNaissance = new Date();
+        String nom = "bala";
+        String prenom = "bali";
+        int role = 1;
+        String email = "ok@ok";
+        String password = "bala";
+        String telephone = "09897877";
+        Date dateNaissance = null;
+        float taille = 180.0F;
+        float poids = 65.0F;
+        CategorieDiabete typeDiab = new CategorieDiabete((long)1);
+        
         PatientFacade instance = new PatientFacade();
         //int expResult = 0;
-//        int result = instance.createPatient(nom, prenom,1, email, password, telephone, dateNaissance);
+        int result = instance.createPatient(nom, prenom, role, email, password, telephone, dateNaissance, taille, poids, typeDiab);
         //assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+       // fail("The test case is a prototype.");
     }
     
 }

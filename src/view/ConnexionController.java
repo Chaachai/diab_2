@@ -60,6 +60,7 @@ public class ConnexionController implements Initializable {
                 Session.createAtrribute(utilisateur, "connectedUser");
                 switch (utilisateur.getRole()) {
                     case 1:
+                        ViewLauncher.forward(actionEvent, "Accueil.fxml", this.getClass());
                         System.out.println("vous etes un patient");
                         break;
                     case 2:
