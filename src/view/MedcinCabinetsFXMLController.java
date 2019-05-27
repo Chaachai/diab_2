@@ -58,11 +58,13 @@ public class MedcinCabinetsFXMLController implements Initializable {
     private Button supprimerCabinet;
     @FXML
     private Button rechercherCabinet;
-    
+
     @FXML
     private Button mesCabinets;
     @FXML
     private Button mesConseils;
+    @FXML
+    private Button monProfile;
 
     private void initHelper() {
         cabinetFxHelper = new CabinetFxHelper(cabinetsTable, cabinetFacade.getCabinetsByMedcin(1L));
@@ -72,10 +74,15 @@ public class MedcinCabinetsFXMLController implements Initializable {
     public void mesConseils(ActionEvent actionEvent) throws IOException {
         ViewLauncher.forward(actionEvent, "MedcinConseilsFXML.fxml", this.getClass());
     }
-    
+
     @FXML
     public void mesCabinets(ActionEvent actionEvent) throws IOException {
         ViewLauncher.forward(actionEvent, "MedcinCabinetsFXML.fxml", this.getClass());
+    }
+
+    @FXML
+    public void monProfile(ActionEvent actionEvent) throws IOException {
+        ViewLauncher.forward(actionEvent, "MedcinProfileFXML.fxml", this.getClass());
     }
 
     public void mouseClickedTable() {

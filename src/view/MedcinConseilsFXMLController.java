@@ -69,6 +69,8 @@ public class MedcinConseilsFXMLController implements Initializable {
     private Button mesCabinets;
     @FXML
     private Button mesConseils;
+    @FXML
+    private Button monProfile;
 
     @FXML
     private Text conseilText;
@@ -97,6 +99,11 @@ public class MedcinConseilsFXMLController implements Initializable {
     @FXML
     public void mesConseils(ActionEvent actionEvent) throws IOException {
         ViewLauncher.forward(actionEvent, "MedcinConseilsFXML.fxml", this.getClass());
+    }
+    
+    @FXML
+    public void monProfile(ActionEvent actionEvent) throws IOException {
+        ViewLauncher.forward(actionEvent, "MedcinProfileFXML.fxml", this.getClass());
     }
 
     public void mouseClickedTableTypes() {
